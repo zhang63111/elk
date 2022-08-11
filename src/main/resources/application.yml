@@ -1,0 +1,25 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: ELK-server
+  data:
+    data:
+      elasticsearch:
+        repositories:
+          enabled: true
+        cluster-nodes: 127.0.0.1:9300 # es的连接地址及端口号
+        cluster-name: elasticsearch # es集群的名称
+
+logging:
+  level:
+    org:
+      springframework:
+        boot:
+          autoconfigure: info
+  config: classpath:logstash.xml
+  file:
+    path: logs\elkspringboot_log
+logstash:
+  host: 192.168.68.137
